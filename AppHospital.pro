@@ -9,21 +9,27 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    doctorview.cpp \
     finddialog.cpp \
+    loginview.cpp \
     main.cpp \
     mainwindow.cpp \
-    page1dialog.cpp
+    welcome.cpp
 
 HEADERS += \
+    doctorview.h \
     finddialog.h \
+    loginview.h \
     mainwindow.h \
-    page1dialog.h
+    welcome.h
 
 FORMS += \
     Editdialog.ui \
+    doctorview.ui \
     finddialog.ui \
+    loginview.ui \
     mainwindow.ui \
-    page1dialog.ui
+    welcome.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

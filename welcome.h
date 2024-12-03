@@ -1,5 +1,5 @@
-#ifndef PAGE1DIALOG_H
-#define PAGE1DIALOG_H
+#ifndef WELCOME_H
+#define WELCOME_H
 
 #include <QDialog>
 
@@ -19,4 +19,4 @@ private:
     Ui::Page1Dialog *ui;
 };
 
-#endif // PAGE1DIALOG_H
+#endif // WELCOME_H

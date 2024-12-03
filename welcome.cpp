@@ -1,5 +1,5 @@
-#include "page1dialog.h"
-#include "ui_page1dialog.h"
+#include "welcome.h"
+#include "ui_welcome.h"
 
 Page1Dialog::Page1Dialog(QWidget *parent)
     : QDialog(parent)

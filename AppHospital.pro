@@ -16,7 +16,7 @@ SOURCES += \
     masterview.cpp \
     patienteditview.cpp \
     patientview.cpp \
-    welcome.cpp
+    welcomeview.cpp
 
 HEADERS += \
     departmentview.h \
@@ -25,7 +25,7 @@ HEADERS += \
     masterview.h \
     patienteditview.h \
     patientview.h \
-    welcome.h
+    welcomeview.h
 
 FORMS += \
     departmentview.ui \
@@ -34,7 +34,7 @@ FORMS += \
     masterview.ui \
     patienteditview.ui \
     patientview.ui \
-    welcome.ui
+    welcomeview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

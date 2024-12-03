@@ -1,6 +1,7 @@
 #ifndef PATIENTVIEW_H
 #define PATIENTVIEW_H
 
+
 #include <QWidget>
 
 namespace Ui {

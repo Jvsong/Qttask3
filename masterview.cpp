@@ -1,19 +1,23 @@
 #include "masterview.h"
 #include "ui_masterview.h"
 #include <QDebug>
-
+#include "idatabase.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    this->setWindowFlag(Qt::FramelessWindowHint);
+
     goLoginView();
+
+    IDatabase::getInstance();
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui; 
+    delete ui;
 }
 
 void MainWindow::goLoginView()
@@ -32,13 +36,16 @@ void MainWindow::goWelcomeView()
     welcomeview = new WelcomeView(this);
 
     pushWidgetToStackView(welcomeview);
+
+    connect(welcomeview,SIGNAL(goDoctorView()),this,SLOT(goDoctorView()));
+    connect(welcomeview,SIGNAL(goDepartmentView()),this,SLOT(goDepartmentView()));
+    connect(welcomeview,SIGNAL(goPatientView()),this,SLOT(goPatientView()));
 }
 
 void MainWindow::goDoctorView()
 {
     qDebug() << "goDoctorView";
     doctorView = new DoctorView(this);
-
     pushWidgetToStackView(doctorView);
 }
 
@@ -46,23 +53,23 @@ void MainWindow::goDepartmentView()
 {
     qDebug() << "goDepartmentView";
     departmentView = new DepartmentView(this);
-
     pushWidgetToStackView(departmentView);
 }
 
-void MainWindow::goPatiebtView()
+void MainWindow::goPatientView()
 {
-    qDebug() << "goPatiebtView";
+    qDebug() << "goPatientView";
     patientView = new PatientView(this);
-
     pushWidgetToStackView(patientView);
+
+    connect(patientView,SIGNAL(goPatientEditView()),this,SLOT(goPatientEditView()));
 }
 
-void MainWindow::goPatientEdictView()
-{
-    qDebug() << "goPatientEdictView";
-    patientEditView = new PatientEditView(this);
 
+void MainWindow::goPatientEditView()
+{
+    qDebug() << "goPatientEditView";
+    patientEditView = new PatientEditView(this);
     pushWidgetToStackView(patientEditView);
 }
 
@@ -89,6 +96,30 @@ void MainWindow::pushWidgetToStackView(QWidget *widget)
 }
 
 void MainWindow::on_btback_clicked()
+{
+    goPreviousView();
+}
+
+
+void MainWindow::on_stackedWidget_currentChanged(int arg1)
+{
+    int count = ui->stackedWidget->count();
+    if(count > 0)
+        ui->btback->setEnabled(true);
+    else
+        ui->btback->setEnabled(false);
+
+    QString title = ui->stackedWidget->currentWidget()->windowTitle();
+
+    if(title == "欢迎"){
+        ui->btlogout->setEnabled(true);
+        ui->btback->setEnabled(false);
+    }else
+        ui->btlogout->setEnabled(false);
+}
+
+
+void MainWindow::on_btlogout_clicked()
 {
     goPreviousView();
 }

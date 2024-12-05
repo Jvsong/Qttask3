@@ -18,35 +18,35 @@
     <widget class="QLineEdit" name="lineEdit"/>
    </item>
    <item row="0" column="1">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="btSearch">
      <property name="text">
       <string>查找</string>
      </property>
     </widget>
    </item>
    <item row="0" column="2">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="btAdd">
      <property name="text">
-      <string>本地</string>
+      <string>添加</string>
      </property>
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="btDelete">
      <property name="text">
       <string>删除</string>
      </property>
     </widget>
    </item>
    <item row="0" column="4">
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="btEdit">
      <property name="text">
       <string>修改</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0" colspan="5">
-    <widget class="QTextEdit" name="textEdit"/>
+    <widget class="QTextEdit" name="tableView"/>
    </item>
   </layout>
  </widget>

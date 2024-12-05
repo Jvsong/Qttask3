@@ -16,8 +16,21 @@ WelcomeView::~WelcomeView()
     delete ui;
 }
 
-void WelcomeView::on_pushButton_clicked()
-{
 
+void WelcomeView::on_btDepartmentView_clicked()
+{
+    emit goDepartmentView();
+}
+
+
+void WelcomeView::on_btDoctorView_clicked()
+{
+    emit goDoctorView();
+}
+
+
+void WelcomeView::on_btPatientView_clicked()
+{
+    emit goPatientView();
 }
 

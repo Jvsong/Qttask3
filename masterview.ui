@@ -23,7 +23,11 @@
       <item>
        <widget class="QPushButton" name="btback">
         <property name="text">
-         <string>返回</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/img/Back.png</normaloff>:/img/Back.png</iconset>
         </property>
        </widget>
       </item>
@@ -63,7 +67,11 @@
       <item>
        <widget class="QPushButton" name="btlogout">
         <property name="text">
-         <string>注销</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/img/Exit.png</normaloff>:/img/Exit.png</iconset>
         </property>
        </widget>
       </item>

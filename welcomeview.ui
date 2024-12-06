@@ -13,6 +13,59 @@
   <property name="windowTitle">
    <string>欢迎</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* 整个窗口背景 */
+QWidget {
+    background-color: #E8F0F8; /* 浅蓝色背景，给人平静感 */
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #007BFF; /* 按钮背景颜色 */
+    color: white;  /* 按钮文字颜色 */
+    border: 2px solid #0056B3; /* 按钮边框 */
+    border-radius: 8px; /* 按钮圆角 */
+    font-size: 14px;  /* 字体大小调整为14px，避免按钮过大 */
+    padding: 8px 16px; /* 按钮内边距 */
+    min-width: 60px;  /* 最小宽度为100px */
+    min-height: 20px;  /* 最小高度为40px */
+    transition: background-color 0.3s, transform 0.1s; /* 添加平滑过渡效果 */
+}
+
+/* 按钮悬停样式 */
+QPushButton:hover {
+    background-color: #0056B3; /* 悬停时颜色变深 */
+    transform: scale(1.05); /* 鼠标悬停时按钮放大 */
+}
+
+/* 按钮按下样式 */
+QPushButton:pressed {
+    background-color: #003F7F; /* 按下时按钮颜色更深 */
+    transform: scale(1); /* 按下时去掉放大效果 */
+}
+
+/* 按钮图标样式 */
+QPushButton {
+    text-align: center;
+    font-weight: bold;  /* 按钮文字加粗 */
+}
+
+/* 按钮悬停时添加阴影 */
+QPushButton:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* 按钮悬停时加入柔和的阴影 */
+}
+
+/* 处理布局的间距 */
+QSpacerItem {
+    background-color: transparent; /* 空间器透明 */
+}
+
+/* 布局管理 - 水平布局和垂直布局居中 */
+QHBoxLayout, QVBoxLayout {
+    alignItems: center;
+}
+</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
     <spacer name="verticalSpacer">
@@ -55,8 +108,8 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>50</width>
-         <height>50</height>
+         <width>96</width>
+         <height>40</height>
         </size>
        </property>
        <property name="sizeIncrement">
@@ -64,6 +117,9 @@
          <width>50</width>
          <height>50</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>科室管理</string>
@@ -86,8 +142,8 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>50</width>
-         <height>50</height>
+         <width>96</width>
+         <height>40</height>
         </size>
        </property>
        <property name="sizeIncrement">
@@ -117,8 +173,8 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>50</width>
-         <height>50</height>
+         <width>96</width>
+         <height>40</height>
         </size>
        </property>
        <property name="sizeIncrement">

@@ -14,7 +14,116 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">        /* 设置QMainWindow背景色 */
+        QMainWindow {
+            background-color: #F5F5F5;  /* 浅灰色背景 */
+        }
+
+        /* 设置QPushButton按钮样式 */
+        QPushButton {
+            background-color: transparent;  /* 背景透明 */
+            border: none;                   /* 无边框 */
+            font-size: 16px;                /* 字体大小 */
+            color: #007BFF;                 /* 蓝色字体 */
+            padding: 5px 10px;              /* 内边距 */
+            min-width: 50px;                /* 最小宽度 */
+            min-height: 30px;               /* 最小高度 */
+            text-align: center;             /* 文本居中 */
+        }
+
+        /* 设置按钮的悬停效果 */
+        QPushButton:hover {
+            background-color: rgba(0, 123, 255, 0.1);  /* 蓝色透明背景 */
+            color: #0056B3;  /* 悬停时文字变为深蓝 */
+        }
+
+        /* 设置按钮按下时的效果 */
+        QPushButton:pressed {
+            background-color: rgba(0, 123, 255, 0.2);  /* 深蓝透明背景 */
+            color: #003f7f;   /* 按下时文字变为更深的蓝色 */
+        }
+
+        /* 左上角按钮（返回按钮） */
+        QPushButton#btback {
+            font-size: 14px;             /* 字体小一点 */
+            color: #007BFF;              /* 蓝色字体 */
+        }
+
+        /* 右上角按钮（退出按钮） */
+        QPushButton#btlogout {
+            font-size: 14px;             /* 字体小一点 */
+            color: #FF4D4D;              /* 红色字体 */
+        }
+
+        /* 设置QLabel标题样式 */
+        QLabel#title {
+            font-size: 18px;            /* 字体大小 */
+            font-weight: bold;          /* 加粗 */
+            color: #333333;             /* 深灰色字体 */
+            margin-left: 20px;          /* 左边距 */
+            text-align: center;         /* 居中 */
+        }
+
+        /* 设置QStackedWidget背景 */
+        QStackedWidget {
+            background-color: #FFFFFF;  /* 白色背景 */
+            border: 1px solid #DDDDDD;  /* 灰色边框 */
+            border-radius: 5px;         /* 圆角 */
+        }
+
+        /* 设置菜单栏样式 */
+        QMenuBar {
+            background-color: #007BFF;  /* 菜单栏蓝色背景 */
+            color: white;               /* 白色字体 */
+            font-size: 14px;            /* 字体大小 */
+        }
+
+        /* 设置菜单项样式 */
+        QMenuBar::item {
+            background-color: transparent;
+            padding: 5px 15px;
+        }
+
+        QMenuBar::item:selected {
+            background-color: #0056B3;  /* 选中项深蓝色背景 */
+        }
+
+        /* 设置QMenuBar项悬停时的背景颜色 */
+        QMenuBar::item:hover {
+            background-color: #0056B3;  /* 悬停时的背景色 */
+        }
+
+        /* 设置操作的样式 */
+        QAction {
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        /* 设置菜单图标样式 */
+        QAction::icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* 设置水平间距 */
+        QSpacerItem {
+            sizeHint: 20px;
+        }
+/* QWidget 控件边框和窗口之间的缝隙 */
+QWidget {
+    background-color: #ffffff;
+    margin: 0; /* 取消窗口和控件之间的边距 */
+    padding: 0; /* 取消内边距 */
+    font-family: &quot;Microsoft YaHei UI&quot;, sans-serif;
+    font-size: 10pt;
+}
+
+/* 窗口布局 */
+QGridLayout {
+    margin: 0; /* 设置为0，消除布局与窗口边缘的空隙 */
+    spacing: 8px; /* 控件之间的间隙 */
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -88,7 +197,7 @@
      <x>0</x>
      <y>0</y>
      <width>475</width>
-     <height>21</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

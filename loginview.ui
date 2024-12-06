@@ -6,14 +6,105 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>430</width>
-    <height>278</height>
+    <width>441</width>
+    <height>280</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>登录</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* 整体窗口背景颜色 */
+QWidget {
+    background-color: #ffffff; /* 白色背景 */
+    font-family: &quot;Microsoft YaHei UI&quot;, sans-serif; /* 使用微软雅黑字体 */
+    font-size: 12pt;
+}
+
+/* 窗口标题样式 */
+QWidget#DepartmentView {
+    background-color: #f0f0f0; /* 浅灰色背景 */
+    border-radius: 5px; /* 圆角 */
+    padding: 20px; /* 内边距 */
+}
+
+/* 欢迎标签样式 */
+QLabel#label {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #007BFF; /* 使用蓝色字体，突出医疗主题 */
+    margin-bottom: 20px; /* 下方留白 */
+    text-align: center; /* 居中显示 */
+    padding: 10px;
+    background-color: #e6f7ff; /* 浅蓝色背景，增强视觉效果 */
+    border-radius: 10px; /* 圆角 */
+    border: 2px solid #007BFF; /* 蓝色边框 */
+    width: 80%; /* 标签宽度适配 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #007BFF; /* 蓝色背景 */
+    color: white;
+    border: none;
+    border-radius: 5px; /* 圆角 */
+    padding: 10px 20px; /* 按钮内边距 */
+    font-size: 12px;
+    cursor: pointer; /* 鼠标悬停时变成手型 */
+}
+
+/* 按钮悬停时的样式 */
+QPushButton:hover {
+    background-color: #0056b3; /* 悬停时的背景颜色 */
+}
+
+/* 输入框样式 */
+QLineEdit {
+    border: 1px solid #ccc; /* 边框颜色 */
+    border-radius: 4px; /* 圆角 */
+    padding: 5px;
+    background-color: white;
+    font-size: 14px;
+}
+
+/* 聚焦时 QLineEdit 样式 */
+QLineEdit:focus {
+    border-color: #007BFF; /* 聚焦时的边框颜色 */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 聚焦时的阴影效果 */
+}
+
+/* 布局间距 */
+QGridLayout {
+    margin: 20px;
+    spacing: 10px; /* 控件之间的间距 */
+}
+
+/* 添加间隔的样式 */
+QSpacerItem {
+    background-color: transparent;
+}
+
+
+</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout_3">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <item row="0" column="1">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
@@ -135,6 +226,12 @@
    </item>
    <item row="5" column="1">
     <layout class="QGridLayout" name="gridLayout_2">
+     <property name="horizontalSpacing">
+      <number>10</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>0</number>
+     </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="btSignUp">
        <property name="text">

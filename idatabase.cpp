@@ -28,6 +28,39 @@ bool IDatabase::initPatientModel()
     return true;
 }
 
+int IDatabase::addNewPatient()
+{
+    patientTabModel->insertRow(patientTabModel->rowCount(),
+                               QModelIndex());
+    QModelIndex curIndex = patientTabModel->index(patientTabModel->rowCount()-1,1);
+
+    return curIndex.row();
+}
+
+bool IDatabase::searchPatient(QString filter)
+{
+    patientTabModel->setFilter(filter);
+    return patientTabModel->select();
+}
+
+bool IDatabase::deleteCurrentPatient()
+{
+    QModelIndex curIndex = thePatientSelection->currentIndex();
+    patientTabModel->removeRow(curIndex.row());
+    patientTabModel->submitAll();
+    patientTabModel->select();
+}
+
+bool IDatabase::submitPatientEdit()
+{
+    return patientTabModel->submitAll();
+}
+
+void IDatabase::revertPatientEdit()
+{
+    patientTabModel->revertAll();
+}
+
 
 IDatabase::IDatabase(QObject *parent) : QObject{parent}
 {

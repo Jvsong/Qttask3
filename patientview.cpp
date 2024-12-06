@@ -8,9 +8,9 @@ PatientView::PatientView(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);          // 选择整行
-    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);          // 单选模式
-    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);            // 禁止编辑
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);   // 选择整行
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);  // 单选模式
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);    // 禁止编辑
     ui->tableView->setAlternatingRowColors(true);
 
     IDatabase &iDatabase = IDatabase::getInstance();
@@ -27,6 +27,29 @@ PatientView::~PatientView()
 
 void PatientView::on_btAdd_clicked()
 {
-    emit goPatientEditView();
+    int currow = IDatabase::getInstance().addNewPatient();
+    emit goPatientEditView(currow);
+}
+
+
+void PatientView::on_btEdit_clicked()
+{
+    QModelIndex curIndex =
+        IDatabase::getInstance().thePatientSelection->currentIndex();
+
+    emit goPatientEditView(curIndex.row());
+}
+
+
+void PatientView::on_btDelete_clicked()
+{
+    IDatabase::getInstance().deleteCurrentPatient();
+}
+
+
+void PatientView::on_btSearch_clicked()
+{
+    QString filter = QString("name like '%%1%'").arg(ui->txtSearch->text());
+    IDatabase::getInstance().searchPatient(filter);
 }
 

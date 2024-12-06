@@ -62,15 +62,17 @@ void MainWindow::goPatientView()
     patientView = new PatientView(this);
     pushWidgetToStackView(patientView);
 
-    connect(patientView,SIGNAL(goPatientEditView()),this,SLOT(goPatientEditView()));
+    connect(patientView,SIGNAL(goPatientEditView(int )),this,SLOT(goPatientEditView(int)));
 }
 
 
-void MainWindow::goPatientEditView()
+void MainWindow::goPatientEditView(int rowNo)
 {
     qDebug() << "goPatientEditView";
-    patientEditView = new PatientEditView(this);
+    patientEditView = new PatientEditView(this,rowNo);
     pushWidgetToStackView(patientEditView);
+
+    connect(patientEditView,SIGNAL(goPreviousView()),this,SLOT(goPreviousView()));
 }
 
 void MainWindow::goPreviousView()

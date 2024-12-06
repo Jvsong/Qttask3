@@ -47,5 +47,9 @@ RESOURCES += \
     res.qrc
 
 DISTFILES += \
+    img/Add.png \
     img/Back.png \
-    img/Exit.png
+    img/Delete.png \
+    img/Edit.png \
+    img/Exit.png \
+    img/Search.png

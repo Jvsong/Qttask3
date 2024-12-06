@@ -31,7 +31,6 @@ void PatientView::on_btAdd_clicked()
     emit goPatientEditView(currow);
 }
 
-
 void PatientView::on_btEdit_clicked()
 {
     QModelIndex curIndex =

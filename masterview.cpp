@@ -62,7 +62,7 @@ void MainWindow::goPatientView()
     patientView = new PatientView(this);
     pushWidgetToStackView(patientView);
 
-    connect(patientView,SIGNAL(goPatientEditView(int )),this,SLOT(goPatientEditView(int)));
+    connect(patientView,SIGNAL(goPatientEditView(int)),this,SLOT(goPatientEditView(int)));
 }
 
 

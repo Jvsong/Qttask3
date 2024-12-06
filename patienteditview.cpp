@@ -2,6 +2,8 @@
 #include "ui_patienteditview.h"
 #include <QSqlTableModel>
 #include "idatabase.h"
+#include <QDataWidgetMapper>
+
 
 PatientEditView::PatientEditView(QWidget *parent,int index)
     : QWidget(parent)
@@ -27,7 +29,7 @@ PatientEditView::PatientEditView(QWidget *parent,int index)
     dataMapper->addMapping(ui->dbCreatedTimestamp, tabModel->fieldIndex("CREATEDTIMESTAMP"));
 
     // 设置当前索引
-    dataMapper->setCurrentIndex(0);
+    dataMapper->setCurrentIndex(index);
 
 
 }

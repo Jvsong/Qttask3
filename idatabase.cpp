@@ -1,4 +1,7 @@
 #include "idatabase.h"
+#include <QSqlRecord>
+#include <QUuid>
+#include <QDateTime>
 
 void IDatabase::initDatabase()
 {
@@ -34,8 +37,16 @@ int IDatabase::addNewPatient()
                                QModelIndex());
     QModelIndex curIndex = patientTabModel->index(patientTabModel->rowCount()-1,1);
 
+    int curRecNo = curIndex.row();
+    QSqlRecord curRec = patientTabModel->record(curRecNo);//获取当前记录
+    curRec.setValue("CREATEDTIMESTAMP",QDateTime::currentDateTime().toString("yyyy-MM-dd"));
+    curRec.setValue("ID",QUuid::createUuid().toString(QUuid::WithoutBraces));
+
+    patientTabModel->setRecord(curRecNo,curRec);
+
     return curIndex.row();
 }
+
 
 bool IDatabase::searchPatient(QString filter)
 {

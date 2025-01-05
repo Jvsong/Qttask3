@@ -2,6 +2,7 @@
 #define MASTERVIEW_H
 
 #include <QMainWindow>
+#include "doctoreditview.h"
 #include "loginview.h"
 #include "doctorview.h"
 #include "welcomeView.h"
@@ -31,6 +32,7 @@ public slots:
         void goPatientView();
         void goPatientEditView(int rowNo);
         void goPreviousView();
+        void goDoctorEditView(int rowNo);
 
 
     private slots:
@@ -51,6 +53,7 @@ public slots:
     PatientView *patientView;
     DepartmentView *departmentView;
     WelcomeView *welcomeview;
+    DoctorEditView *doctoreditview;
 
 
 };

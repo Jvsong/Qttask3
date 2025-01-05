@@ -47,6 +47,8 @@ void MainWindow::goDoctorView()
     qDebug() << "goDoctorView";
     doctorView = new DoctorView(this);
     pushWidgetToStackView(doctorView);
+
+    connect(doctorView, SIGNAL(goDoctorEditView(int)), this, SLOT(goDoctorEditView(int)));
 }
 
 void MainWindow::goDepartmentView()
@@ -75,6 +77,17 @@ void MainWindow::goPatientEditView(int rowNo)
     connect(patientEditView,SIGNAL(goPreviousView()),this,SLOT(goPreviousView()));
 }
 
+void MainWindow::goDoctorEditView(int rowNo)
+{
+    qDebug() << "goDoctorEditView";
+    doctoreditview = new DoctorEditView(this,rowNo);
+    pushWidgetToStackView(doctoreditview);
+
+    connect(doctoreditview,SIGNAL(goDoctorEditView()),this,SLOT(goDoctorEditView()));
+    connect(doctoreditview, SIGNAL(goPreviousView()), this, SLOT(goPreviousView()));
+}
+
+
 void MainWindow::goPreviousView()
 {
     int count = ui->stackedWidget->count();
@@ -88,6 +101,8 @@ void MainWindow::goPreviousView()
         delete widget;
     }
 }
+
+
 
 void MainWindow::pushWidgetToStackView(QWidget *widget)
 {

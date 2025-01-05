@@ -19,6 +19,7 @@ SOURCES += \
     masterview.cpp \
     patienteditview.cpp \
     patientview.cpp \
+    register.cpp \
     welcomeview.cpp
 
 HEADERS += \
@@ -31,6 +32,7 @@ HEADERS += \
     masterview.h \
     patienteditview.h \
     patientview.h \
+    register.h \
     welcomeview.h
 
 FORMS += \
@@ -42,6 +44,7 @@ FORMS += \
     masterview.ui \
     patienteditview.ui \
     patientview.ui \
+    register.ui \
     welcomeview.ui
 
 # Default rules for deployment.

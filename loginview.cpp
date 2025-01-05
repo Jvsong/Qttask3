@@ -1,6 +1,7 @@
 #include "loginview.h"
 #include "ui_loginview.h"
 #include "idatabase.h"
+#include "register.h"
 
 LoginView::LoginView(QWidget *parent)
     : QWidget(parent)
@@ -21,5 +22,11 @@ void LoginView::on_btSignIn_clicked()
 
     if(status == "loginOk")
         emit loginSuccess();
+}
+
+
+void LoginView::on_btSignUp_clicked()
+{
+    emit goRegister();
 }
 

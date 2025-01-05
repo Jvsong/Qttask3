@@ -62,6 +62,8 @@ public:
     void revertDepartmentEdit();
     QSqlTableModel *departmentTabModel; // 数据模型
     QItemSelectionModel *theDepartmentSelection; // 选择模型
+
+    bool addNewUser(const QString &username, const QString &password);
 };
 
 #endif // IDATABASE_H

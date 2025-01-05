@@ -28,6 +28,7 @@ void MainWindow::goLoginView()
     pushWidgetToStackView(loginView);
 
     connect(loginView,SIGNAL(loginSuccess()),this,SLOT(goWelcomeView()));
+    connect(loginView, SIGNAL(goRegister()), this, SLOT(goRegister()));  // 连接信号和槽
 }
 
 void MainWindow::goWelcomeView()
@@ -69,6 +70,22 @@ void MainWindow::goPatientView()
     connect(patientView,SIGNAL(goPatientEditView(int)),this,SLOT(goPatientEditView(int)));
 }
 
+void MainWindow::goRegister()
+{
+    qDebug() << "goRegister";
+    registerWidget = new Register(this);
+    pushWidgetToStackView(registerWidget);
+
+    connect(registerWidget,SIGNAL(goRegister(int)),this,SLOT(goRegister(int)));
+    connect(registerWidget, &Register::cancelRegistration, this, &MainWindow::onCancelRegistration);
+}
+
+void MainWindow::onCancelRegistration()
+{
+    // 处理取消注册操作的代码
+    qDebug() << "Registration cancelled.";
+    goPreviousView();  // 跳回到上一界面
+}
 
 void MainWindow::goPatientEditView(int rowNo)
 {
@@ -98,6 +115,7 @@ void MainWindow::goDepartmentEditView(int rowNo)
     connect(departmenteditview,SIGNAL(goDepartmentEditView()),this,SLOT(goDepartmentEditView()));
     connect(departmenteditview, SIGNAL(goPreviousView()), this, SLOT(goPreviousView()));
 }
+
 
 
 void MainWindow::goPreviousView()
@@ -152,4 +170,6 @@ void MainWindow::on_btlogout_clicked()
 {
     goPreviousView();
 }
+
+
 

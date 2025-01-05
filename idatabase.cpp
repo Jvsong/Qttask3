@@ -255,3 +255,32 @@ void IDatabase::revertDepartmentEdit()
 {
     departmentTabModel->revertAll();
 }
+
+bool IDatabase::addNewUser(const QString &username, const QString &password)
+{
+    // 检查用户名是否已存在
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM users WHERE username = ?");
+    query.addBindValue(username);
+
+    if (!query.exec()) {
+        qDebug() << "Query failed: " << query.lastError().text();
+        return false;  // 如果查询执行失败，返回 false
+    }
+
+    if (query.next() && query.value(0).toInt() > 0) {
+        return false;  // 用户名已存在
+    }
+
+    // 插入新用户
+    query.prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+    query.addBindValue(username);
+    query.addBindValue(password);
+
+    if (!query.exec()) {
+        qDebug() << "Insert failed: " << query.lastError().text();
+        return false;  // 如果插入执行失败，返回 false
+    }
+
+    return true;  // 成功插入新用户
+}

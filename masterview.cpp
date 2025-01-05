@@ -56,6 +56,8 @@ void MainWindow::goDepartmentView()
     qDebug() << "goDepartmentView";
     departmentView = new DepartmentView(this);
     pushWidgetToStackView(departmentView);
+
+    connect(departmentView,SIGNAL(goDepartmentEditView(int)),this,SLOT(goDepartmentEditView(int)));
 }
 
 void MainWindow::goPatientView()
@@ -85,6 +87,16 @@ void MainWindow::goDoctorEditView(int rowNo)
 
     connect(doctoreditview,SIGNAL(goDoctorEditView()),this,SLOT(goDoctorEditView()));
     connect(doctoreditview, SIGNAL(goPreviousView()), this, SLOT(goPreviousView()));
+}
+
+void MainWindow::goDepartmentEditView(int rowNo)
+{
+    qDebug() << "goDepartmentEditView";
+    departmenteditview = new DepartmentEditView(this,rowNo);
+    pushWidgetToStackView(departmenteditview);
+
+    connect(departmenteditview,SIGNAL(goDepartmentEditView()),this,SLOT(goDepartmentEditView()));
+    connect(departmenteditview, SIGNAL(goPreviousView()), this, SLOT(goPreviousView()));
 }
 
 

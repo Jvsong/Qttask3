@@ -13,6 +13,65 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* 设置整个界面的背景色 */
+QWidget {
+    background-color: #f0f0f0;
+}
+
+/* 设置QLabel标签的字体和颜色 */
+QLabel {
+    font-size: 14px;
+    color: #333;
+}
+
+/* 设置QLineEdit的样式 */
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* 设置QPushButton的样式 */
+QPushButton {
+    background-color: #4CAF50; 
+    color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* 按钮悬停时的样式 */
+QPushButton:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+/* 按钮点击时的样式 */
+QPushButton:pressed {
+    background-color: #3e8e41;
+    border-color: #3e8e41;
+}
+
+/* 设置取消按钮的样式 */
+QPushButton#Cancel {
+    background-color: #f44336;
+    border-color: #f44336;
+}
+
+QPushButton#Cancel:hover {
+    background-color: #e53935;
+    border-color: #e53935;
+}
+
+QPushButton#Cancel:pressed {
+    background-color: #c62828;
+    border-color: #c62828;
+}
+</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="3">
     <spacer name="verticalSpacer_2">
@@ -22,7 +81,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>15</height>
+       <height>2</height>
       </size>
      </property>
     </spacer>
@@ -80,7 +139,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>31</width>
+       <width>26</width>
        <height>20</height>
       </size>
      </property>
@@ -135,7 +194,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>31</width>
+       <width>26</width>
        <height>20</height>
       </size>
      </property>
@@ -206,7 +265,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>37</height>
+       <height>24</height>
       </size>
      </property>
     </spacer>
